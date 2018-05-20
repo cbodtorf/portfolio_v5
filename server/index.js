@@ -1,7 +1,11 @@
+require('dotenv').config();
+
 const express = require('express');
 const path = require('path');
 const cluster = require('cluster');
 const numCPUs = require('os').cpus().length;
+const bodyParser = require("body-parser");
+const nodemailer = require("nodemailer");
 
 const PORT = process.env.PORT || 5000;
 
@@ -21,8 +25,44 @@ if (cluster.isMaster) {
 } else {
   const app = express();
 
+  const transporter = nodemailer.createTransport({
+		service: "gmail",
+		host: "smtp.gmail.com",
+		auth: {
+			user: process.env.GMAIL_USERNAME,
+			pass: process.env.GMAIL_PW
+		}
+  });
+
+  // Configure body parser for AJAX requests
+  app.use(bodyParser.urlencoded({ extended: false }));
+  app.use(bodyParser.json());
+  app.use(bodyParser.text());
+  app.use(bodyParser.json({ type: "application/vnd.api+json" }));
+
   // Priority serve any static files.
   app.use(express.static(path.resolve(__dirname, '../react-ui/build')));
+
+  //mailer routing
+  app.post('/sendemail', function(req, res){
+  	console.log("req!", req);
+  	const mailOptions = {
+  	  from: req.body.from,
+      to: req.body.to,
+      subject: req.body.subject,
+      text: req.body.text
+   }
+  	// console.log(mailOptions);
+  	transporter.sendMail(mailOptions, function(error, response){
+  		if(error){
+  			console.log(error);
+  			res.end("error");
+  		} else {
+  		// console.log("Message sent: " + response.message);
+  		res.end("sent");
+  		}
+  	});
+  });
 
   // Answer API requests.
   app.get('/api', function (req, res) {
