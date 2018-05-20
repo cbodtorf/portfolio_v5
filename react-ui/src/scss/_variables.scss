@@ -1,0 +1,333 @@
+$viewportIncrement: 1px;
+
+$small: 480px;
+$medium: 768px;
+$large: 769px;
+$desktop: 1025px;
+
+$postSmall: $small + $viewportIncrement;
+$preMedium: $medium - $viewportIncrement;
+$preLarge: $large - $viewportIncrement;
+
+$breakpoints: (
+  'sm' '(max-width: #{$small})',
+  'md' '(min-width: #{$postSmall}) and (max-width: #{$medium})',
+  'md-dn' '(max-width: #{$medium})',
+  'lg' '(min-width: #{$large})',
+  'dt' '(min-width: #{$desktop})'
+);
+$breakpoint-has-widths: ('sm', 'md', 'md-dn', 'lg', 'dt');
+$breakpoint-has-push:  ('md', 'md-dn', 'lg');
+$breakpoint-has-pull:  ('md', 'md-dn', 'lg');
+
+/*============================================================================
+  #Colors
+==============================================================================*/
+
+
+// Theme Colors
+$colorPrimary: #1a1427;
+$colorSecondary: #bbb;
+
+$colorMainAccent: #1f6a6d;
+$colorSecondaryAccent: #ffffff;
+$colorShopAccent: #ff4040;
+
+$colorSections: #fffffc;
+// Backgrounds
+$colorBody: #f7f9f9;
+$colorSection: #fffffc;
+$colorWhite: #fff;
+$colorBlack: #000;
+
+//overlay color for shop accent color (white, primary or black)
+$colorPrimaryOverlay: #fff;
+$colorMainAccentOverlay: #000000;
+$colorShopAccentOverlay: #000000;
+$colorSecondaryAccentOverlay: #000000;
+$secondaryOverlayFaded: rgba(0,0,0, 0.2);
+
+$mainAccentRGBA: rgba($colorMainAccent, 0.95);
+$secondaryAccentRGBA: rgba($colorSecondaryAccent, 0.95);
+$sectionRGBA: rgba($colorSections, 0.95);
+$primaryRGBA: rgba($colorPrimary, 0.95);
+$primaryRGBAFaded: rgba($colorPrimary, 0.2);
+$primaryRGBAUltraFaded: rgba($colorPrimary, 0.05);
+
+.color--primary { color: $colorPrimary;}
+.color--primary-overlay { color: $colorPrimaryOverlay;}
+.color--primary-faded { color: $primaryRGBAFaded;}
+
+.color--main-accent { color: $colorMainAccent;}
+.color--main-accent-overlay { color: $colorMainAccentOverlay;}
+
+.color--shop-accent { color: $colorShopAccent;}
+.color--shop-accent-overlay { color: $colorShopAccentOverlay;}
+
+.color--secondary-accent { color: $colorSecondaryAccent;}
+.color--secondary-accent-overlay { color: $colorSecondaryAccentOverlay;}
+
+.color--white { color: $colorWhite;}
+.color--black { color: $colorBlack;}
+
+// Background Colors
+
+.bg--primary { background-color: $colorPrimary;}
+.bg--main-accent-overlay { background-color: $colorMainAccentOverlay;}
+.bg--main-accent { background-color: $colorMainAccent;}
+.bg--main-accent-rgba { background-color: $mainAccentRGBA;}
+.bg--secondary-accent { background-color: $colorSecondaryAccent;}
+.bg--secondary-accent-overlay { background-color: $colorSecondaryAccentOverlay;}
+.bg--shop-accent { background-color: $colorShopAccent;}
+.bg--white { background-color: $colorWhite;}
+.bg--black { background-color: $colorBlack;}
+.bg--section { background-color: $colorSections;}
+.bg--body { background-color: $colorBody;}
+
+// Hover Colors
+.hv--primary {
+  &:hover {
+    color: $colorPrimary;
+  }
+}
+
+.hv--main-accent-overlay {
+  &:hover {
+    color: $colorMainAccentOverlay;
+  }
+}
+
+.hv--secondary-accent {
+  &:hover {
+    color: $colorSecondaryAccent;
+  }
+}
+
+.hv--secondary-accent-overlay {
+  &:hover {
+    color: $colorSecondaryAccentOverlay;
+  }
+}
+
+
+.hv--shop-accent {
+  &:hover {
+    color: $colorShopAccent;
+  }
+}
+
+.hv--shop-accent-overlay {
+  &:hover {
+    color: $colorShopAccentOverlay;
+  }
+}
+
+.hv--white {
+  &:hover {
+    color: $colorWhite;
+  }
+}
+
+.hv--black {
+  &:hover {
+    color: $colorBlack;
+  }
+}
+
+
+.hv--sections {
+  &:hover {
+    color: $colorSections;
+  }
+}
+
+//border Colors
+.border--primary { border-color: $colorPrimary;}
+.border--primary-overlay { border-color: $colorPrimaryOverlay;}
+
+.border--main-accent { border-color: $colorMainAccent;}
+.border--main-accent-overlay { border-color: $colorMainAccentOverlay;}
+
+.border--shop-accent { border-color: $colorShopAccent;}
+.border--shop-accent-overlay { border-color: $colorShopAccentOverlay;}
+
+.border--secondary-accent { border-color: $colorSecondaryAccent;}
+.border--secondary-accent-overlay { border-color: $colorSecondaryAccentOverlay;}
+
+.border--white { border-color: $colorWhite;}
+.border--black { border-color: $colorBlack;}
+
+//hover bg
+.hv-bg--primary {
+  &:hover {
+    background-color: $colorPrimary;
+  }
+}
+.hv-bg--main-accent-overlay {
+  &:hover {
+    background-color: $colorMainAccentOverlay;
+  }
+}
+.hv-bg--main-accent {
+  &:hover {
+    background-color: $colorMainAccent;
+  }
+}
+.hv-bg--secondary-accent {
+  &:hover {
+    background-color: $colorSecondaryAccent;
+  }
+}
+.hv-bg--shop-accent {
+  &:hover {
+    background-color: $colorShopAccent;
+  }
+}
+.hv-bg--white {
+  &:hover {
+    background-color: $colorWhite;
+  }
+}
+.hv-bg--black {
+  &:hover {
+    background-color: $colorBlack;
+  }
+}
+.hv-bg--section {
+  &:hover {
+    background-color: $colorSections;
+  }
+}
+
+
+// Button colors
+$colorBtnPrimary: $colorPrimary;
+$colorBtnPrimaryHover: darken($colorBtnPrimary, 10%);
+$colorBtnPrimaryActive: darken($colorBtnPrimaryHover, 10%);
+$colorBtnPrimaryText: #fff;
+
+$colorBtnSecondary: $colorSecondary;
+$colorBtnSecondaryHover: darken($colorBtnSecondary, 10%);
+$colorBtnSecondaryActive: darken($colorBtnSecondaryHover, 10%);
+$colorBtnSecondaryText: #fff;
+
+// Text link colors
+$colorLink: $colorPrimary;
+$colorLinkHover: lighten($colorPrimary, 15%);
+
+// Text colors
+$colorTextBody: #1a1427;
+
+// Border colors
+$colorBorder: #e5e5e5;
+
+// Nav and dropdown link background
+$colorNav: #f2f2f2;
+$colorNavText: #333;
+
+
+/*============================================================================
+  #General Variables
+==============================================================================*/
+
+
+// Logo max width
+$logoMaxWidth: 450px;
+
+// Helper colors
+$disabledGrey: #f6f6f6;
+$disabledBorder: darken($disabledGrey, 25%);
+$errorRed: #d02e2e;
+$errorRedBg: #fff6f6;
+$successGreen: #56ad6a;
+$successGreenBg: #ecfef0;
+
+// Drawers
+$drawerNavWidth: 300px;
+$drawerCartWidth: 300px;
+$colorDrawers: $colorSection;
+$colorDrawerBorder: darken($colorDrawers, 5%);
+$colorDrawerText: #333;
+$drawerTransition: all 0.4s cubic-bezier(0.46, 0.01, 0.32, 1);
+
+// Sizing variables
+$siteWidth: 1680px;
+// can be a %, but nested grids will have smaller margins because of it
+$radius: 3px;
+
+/* Spacing
+========================================================================== */
+
+$space-1: 8px !default;
+$space-2: 16px !default;
+$space-3: 32px !default;
+$space-4: 64px !default;
+$space-5: 128px !default;
+
+$gutter: 32px;
+$gridGutter: 32px;
+
+/* Z-Index
+========================================================================== */
+$zindexNavDropdowns: 5;
+$zindexDrawer: 50;
+$zindexDrawerClose: 40;
+
+$z1: 1 !default;
+$z2: 2 !default;
+$z3: 3 !default;
+$z4: 4 !default;
+
+
+/* Borders
+========================================================================== */
+
+$border-width: 1px !default;
+$border-radius: 3px !default;
+
+
+/* Typography
+========================================================================== */
+
+$font-size--xxxxl: 3rem;
+$font-size--xxxl: 2.5rem;
+$font-size--xxl: 2rem;
+$font-size--xl: 1.5rem;
+$font-size--l: 1.25rem;
+$font-size--ml: 1.125rem;
+$font-size--m: 1rem;
+$font-size--sm: 0.9rem;
+$font-size--s: 0.875rem;
+$font-size--xs: 0.75rem;
+$font-size--xxs: 0.5rem;
+
+$titleFontStack: "Harbour","HelveticaNeue","Helvetica Neue",sans-serif;
+$titleFontWeight: 600;
+$mainFontStack: "Rubik","HelveticaNeue","Helvetica Neue",sans-serif;
+$bodyFontStack: 'Josefin Sans', sans-serif;
+$baseFontSize: 16px; // Henceforth known as 1em
+
+@font-face {
+  font-family: 'icons';
+  src: url("./fonts/icons.eot");
+  src: url('./fonts/icons.eot#iefix') format("embedded-opentype"),
+       url('./fonts/icons.woff') format("woff"),
+       url('./fonts/icons.ttf') format("truetype"),
+       url('./fonts/icons.svg#timber-icons') format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+$socialIconFontStack: 'icons';
+
+/* Line Height
+========================================================================== */
+
+$line-height-1: 1 !default;
+$line-height-2: 1.125 !default;
+$line-height-3: 1.25 !default;
+$line-height-4: 1.5 !default;
+$line-height-5: 1.75 !default;
+$line-height-6: 2 !default;
+$letter-spacing: 1 !default;
+$caps-letter-spacing: 0.1em !default;
+$bold-font-weight: bold !default;

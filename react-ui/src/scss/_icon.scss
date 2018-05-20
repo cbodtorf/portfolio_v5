@@ -1,0 +1,16 @@
+.icon, .social-icons__link svg {
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+  stroke-width: 0;
+  stroke: currentColor;
+  fill: currentColor;
+
+  path {
+    fill: currentColor;
+  }
+}
+
+// .svg-img {
+//   filter: invert(.5) sepia(1) saturate(0) hue-rotate(175deg) contrast(175%);
+// }

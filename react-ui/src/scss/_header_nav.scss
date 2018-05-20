@@ -1,0 +1,449 @@
+/*============================================================================
+  #Site Header
+==============================================================================*/
+.site-header {
+  background-color: $colorPrimary;
+
+  a, .text-link {
+    color: $colorBody;
+  }
+
+  .grid--table {
+    display: table;
+    table-layout: fixed;
+
+    width: 100%;
+
+    > .grid__item {
+      float: none;
+      display: table-cell;
+      vertical-align: middle;
+    }
+  }
+}
+
+
+.site-header__mobile-icon {
+  width: 60px;
+  @include at-query($min, $large) {
+    display: none !important;
+  }
+}
+
+
+.site-header__icon {
+  width: 100%;
+  padding: 16px 0;
+  > svg {
+    vertical-align: -5px;
+  }
+}
+
+
+.site-header__mobile-icon--show {
+  display: inline-block !important;
+  width: auto;
+}
+
+.site-header__notice {
+  text-align: center;
+  padding: ($gutter / 4) 0;
+}
+
+
+.site-header__main {
+  padding: $gutter 0 0;
+  @include at-query($min, $large) {
+    padding-left: ($gutter*2);
+    padding-right: ($gutter*2);
+    padding-top: 0;
+  }
+}
+
+.site-header__logo-col {
+  @include at-query($max, $medium) {
+    width: 100% !important;
+  }
+}
+
+.site-header__logo {
+  text-align: center;
+  margin: 0 auto;
+  max-width: 100%;
+  position: relative;
+  top: 23px;
+  text-shadow: -3px 6px 0px $colorPrimary;
+  letter-spacing: 12px;
+
+  @include at-query ($min, $large) {
+    text-align: left;
+  }
+
+  a,
+  a:hover,
+  a:focus {
+    text-decoration: none;
+    text-decoration: none;
+    background: none;
+    animation: none;
+    -webkit-text-fill-color: $colorBody;
+  }
+
+  a, img {
+    display: block;
+  }
+
+  img {
+    margin: 0 auto;
+  }
+}
+
+.site-header__logo-link {
+  max-width: $logoMaxWidth;
+  margin: 0 auto;
+}
+
+.header_desktop-meta {
+  margin-left: $gutter;
+  padding: 8px 0;
+}
+
+.header_desktop-meta-item {
+  > button,
+  > a {
+    padding: 8px;
+    position: relative;
+    > svg {
+      //vertical-align: -5px;
+    }
+  }
+}
+
+.site-header__cart-toggle {
+  display: inline-block;
+}
+
+.cart-count {
+  position: absolute;
+  bottom: 3px;
+  right: 3px;
+  width: 20px;
+  height: 20px;
+  border-radius: 20px;
+  text-align: center;
+  background-color: $colorSecondaryAccent;
+  color: $colorSecondaryAccentOverlay;
+  font-family: $mainFontStack;
+  font-size: $font-size--s;
+}
+
+.cart-icon__mobile {
+  width: 100%;
+  padding: 16px 0;
+  display: block;
+}
+
+.cart-count--mobile {
+  bottom: 15px;
+  right: 10px;
+}
+
+.site-header__search {
+  display: inline-block;
+  max-width: 400px;
+  margin-top: $gutter / 2;
+  width: 100%;
+}
+
+.search-bar {
+  max-width: 100%;
+
+  @include at-query ($max, $medium) {
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+.login {
+  background-color: transparent;
+  @include transition(background-color,0.2s,ease-in-out);
+}
+
+.login--hover {
+  background-color: $colorSection;
+}
+
+.account-expanded {
+  display: none;
+  opacity: 0;
+  @include transition(opacity,0.2s,ease-in-out);
+  position: absolute;
+  bottom: -50px;
+  left: -100px  ;
+  min-width: 200px;
+  height: 50px;
+  background-color: $colorSections;
+  .child-list-customer {
+    white-space: nowrap;
+  }
+}
+
+.account-expanded--active {
+  display: block;
+  opacity: 1;
+
+}
+
+
+/*============================================================================
+  #Site Nav and Dropdowns
+==============================================================================*/
+.nav-bar {
+  background-color: $colorNav;
+}
+
+.site-nav {
+  cursor: default;
+  margin: 0 0 0 (-$gutter / 2);
+
+  li {
+    margin: 0;
+    display: block;
+  }
+
+  > li {
+    position: relative;
+    display: inline-block;
+  }
+}
+
+.site-nav-holder {
+  white-space: nowrap;
+}
+
+.site-nav-measure {
+  white-space: nowrap;
+  position: absolute;
+  top: -5000px;
+  left: -5000px;
+  opacity: 0;
+}
+
+/*================ Home to hamburger and cart that toggle drawers ================*/
+.site-nav--mobile {
+  @extend .site-nav;
+
+  .text-right & {
+    margin: 0 (-$gutter / 2) 0 0;
+  }
+}
+
+.site-nav__link {
+  display: block;
+  text-decoration: none;
+  padding: $gutter / 2;
+  white-space: nowrap;
+
+  > svg {
+    font-size: 11px;
+    //float: right;
+    margin-left: ($gutter/4);
+    display: inline-block;
+    margin-top: 1px;
+  }
+
+  .site-nav--mobile & {
+    display: inline-block;
+  }
+}
+
+/*================ Dropdowns ================*/
+.site-nav__dropdown {
+  display: none;
+  position: absolute;
+  left: 0;
+  margin: 0;
+  z-index: $zindexNavDropdowns;
+  min-width: 200px;
+
+  .supports-no-touch .site-nav--has-dropdown:hover &,
+  .site-nav--has-dropdown.nav-hover &,
+  .nav-focus + & {
+    display: block;
+  }
+
+  a {
+    background-color: $colorSections;
+  }
+}
+
+.site-nav--has-dropdown.nav-hover {
+  background-color: $colorSections;
+}
+
+/*================ Search bar in header ================*/
+.nav-search {
+  position: relative;
+  padding: 10px 0;
+
+  @include at-query ($max, $medium) {
+    padding: 0 0 ($gutter / 2);
+    margin: 0 auto;
+    text-align: center;
+  }
+}
+
+
+/*============================================================================
+  #Mobile Nav
+  - List of items inside the mobile drawer
+==============================================================================*/
+.mobile-nav {
+  // Negative of .drawer left/right padding for full-width link tap area
+  margin: ($gutter/2) 0 0 (-$gutter / 2);
+
+  li {
+    margin-bottom: 0;
+  }
+}
+
+.mobile-nav__search {
+  padding: $gutter / 2;
+
+  .search-bar {
+    margin-bottom: 0;
+  }
+}
+
+.mobile-nav__item {
+  position: relative;
+  display: block;
+  padding: 0 0 0 ($gutter/2);
+
+  // Background color on top level items so there is no
+  // element overlap on subnav's CSS toggle animation
+  .mobile-nav > & {
+    //background-color: $colorDrawers;
+  }
+
+  &:after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: $gutter / 2;
+    right: $gutter / 2;
+  }
+
+  .mobile-nav > &:last-child:after {
+    display: none;
+  }
+}
+
+// Login/logout links can't have a class on them, so style <a> element
+.mobile-nav__item a {
+  display: block;
+}
+
+.mobile-nav__item a,
+.mobile-nav__toggle button {
+  //color: $colorDrawerText;
+  padding: $gutter / 2;
+  text-decoration: none;
+
+}
+
+.mobile-nav__has-sublist {
+  display: table;
+  width: 100%;
+
+  .mobile-nav__link {
+    display: table-cell;
+    vertical-align: middle;
+    width: 100%;
+    -webkit-font-smoothing: antialiased;
+    -webkit-transform: translate3d(0,0,0);
+  }
+}
+
+.mobile-nav__toggle {
+  display: table-cell;
+  vertical-align: middle;
+  width: 1%;
+}
+
+.mobile-nav__toggle-open {
+  .mobile-nav--expanded & {
+    display: none;
+  }
+}
+
+.mobile-nav__toggle-close {
+  display: none;
+
+  .mobile-nav--expanded & {
+    display: block;
+  }
+}
+
+.mobile-nav__sublist {
+  margin: 0;
+  max-height: 0;
+  visibility: hidden;
+  overflow: hidden;
+  transition: all 300ms cubic-bezier(0.57, 0.06, 0.05, 0.95);
+  @include backface();
+
+  .mobile-nav--expanded + & {
+    visibility: visible;
+    max-height: 700px;
+    transition: all 700ms cubic-bezier(0.57, 0.06, 0.05, 0.95);
+  }
+
+  .mobile-nav__item:after {
+    top: 0;
+    bottom: auto;
+  }
+
+  .mobile-nav__link {
+    padding: $gutter/2 0;
+  }
+}
+
+.mobile-nav__item .mobile-nav__link--secondary,
+.mobile-nav__toggle--secondary button {
+  padding: ($gutter/4) ($gutter/2);
+}
+
+// FOoter
+
+.mobile-nav--footer  {
+  max-width: 80%;
+  margin-top: $gutter;
+  .mobile-nav__has-sublist .mobile-nav__link {
+    //background-color: $colorPrimary;
+  }
+  .mobile-nav__item a, .mobile-nav__toggle button {
+    //color: $colorWhite;
+  }
+  .mobile-nav__item .mobile-nav__link,
+  .mobile-nav__toggle button {
+    padding: ($gutter/4) ($gutter/2);
+  }
+
+  @include at-query ($min, $large) {
+    margin: 0;
+  }
+}
+
+
+.mobile-nav--footer > .mobile-nav__item {
+  //background-color: $colorPrimary;
+}
+
+
+.drawer--left .js--close-drawer {
+  position: relative;
+  top: 0;
+  right: 0;
+  z-index: 10;
+}

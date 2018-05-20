@@ -1,0 +1,19 @@
+/*============================================================================
+  # Bamboo Juices
+  # 2017 - e4 consulting
+==============================================================================*/
+
+.section--bamboo {
+  background-size: contain;
+}
+.bamboo--section {
+  // display: inline-flex;
+  // justify-content: space-between;
+}
+.bamboo--image, .bamboo--description {
+  max-width: 50%;
+  display: inline-block;
+}
+.bamboo--image {
+  margin: 15px;
+}

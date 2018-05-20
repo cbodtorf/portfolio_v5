@@ -1,0 +1,158 @@
+/*============================================================================
+  #Links and Buttons
+==============================================================================*/
+a,
+.text-link {
+  color: $colorLink;
+  text-decoration: none;
+  background: transparent;
+  transition: all 0.3s ease;
+  padding-bottom: 5px;
+}
+
+a:hover,
+a:focus {
+  background-size: 200%;
+  background-image: none;
+  background-image: linear-gradient(45deg, $colorLink 0%, $colorLink 35%, $colorMainAccent 66%, #00c9d3 100%);
+  border-color: $colorMainAccent;
+  color: $colorLink;
+  -webkit-text-fill-color: transparent;
+  -webkit-background-clip: text;
+  -webkit-animation: glow 3s linear infinite;
+  animation: glow 3s linear infinite;
+}
+
+button {
+  overflow: visible;
+}
+
+body:not(.show-focus-outlines) button:focus,
+body:not(.show-focus-outlines) [tabindex]:focus {
+  outline: none;
+}
+
+button[disabled],
+html input[disabled] {
+  cursor: default;
+}
+
+.btn,
+.rte .btn {
+  display: inline-block;
+  padding: 8px ($gutter/2);
+  width: auto;
+  line-height: 1.42;
+  font-weight: regular;
+  text-decoration: none;
+  text-align: center;
+  vertical-align: middle;
+  white-space: nowrap;
+  cursor: pointer;
+  border: 1px solid transparent;
+  @include user-select(none);
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  font-family: $mainFontStack;
+  text-transform: uppercase;
+  font-weight: 400;
+
+
+  /*================ Set primary button colors - can override later ================*/
+  //background-color: $colorBtnPrimary;
+
+  //work out if button is light or dark
+
+
+  &[disabled],
+  &.disabled {
+    cursor: default;
+    color: $colorPrimary;
+    background-color: $primaryRGBAUltraFaded;
+  }
+
+  &:focus {
+   outline: 0;
+  }
+
+}
+
+.btn--secondary,
+.rte .btn--secondary {
+  @extend .btn;
+  background-color: $colorBtnSecondary;
+
+  &:hover {
+    background-color: $colorBtnSecondaryHover;
+    color: $colorBtnSecondaryText;
+  }
+
+  &:active,
+  &:focus {
+   background-color: $colorBtnSecondaryActive;
+   color: $colorBtnSecondaryText;
+  }
+}
+
+.btn--main-accent {
+  background-color: $colorMainAccent;
+  color: $colorPrimary;
+
+  &:hover {
+    background-color: darken($colorMainAccent, 10%);
+  }
+
+}
+
+.btn--shop-accent {
+  background-color: $colorShopAccent;
+  color: $colorPrimary;
+
+  &:hover {
+    background-color: darken($colorShopAccent, 10%);
+  }
+
+}
+
+.btn--white {
+  background-color: $colorWhite;
+  color: $colorPrimary;
+
+  &:hover {
+    background-color: darken($colorWhite, 10%);
+  }
+
+}
+
+
+.btn--black {
+  background-color: $colorBlack;
+  color: $colorWhite;
+
+  &:hover {
+    background-color: darken($colorBlack, 10%);
+  }
+}
+
+.btn--small {
+  padding: 4px 5px;
+  font-size: em(12px);
+}
+
+.btn--large {
+  padding: 12px 15px;
+  font-size: em(16px);
+}
+
+.btn--full {
+  width: 100%;
+}
+
+/*================ Force an input/button to look like a text link ================*/
+.text-link {
+  display: inline;
+  border: 0 none;
+  background: none;
+  padding: 0;
+  margin: 0;
+}

@@ -1,0 +1,47 @@
+/*============================================================================
+  # Scroll
+==============================================================================*/
+.scroll {
+  position: relative;
+  margin-bottom: 100px;
+  z-index: 2;
+}
+.scroll__container {
+  position: absolute;
+  top: 4rem;
+  left: 0;
+}
+.scroll__wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-transform: rotate(-90deg);
+  transform: rotate(-90deg);
+}
+.scroll .svg {
+  display: inline-block;
+  -webkit-transform: translateY(2px);
+  transform: translateY(2px);
+}
+.scroll span {
+  display: inline-block;
+  margin-left: 1rem;
+  font-size: 14px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+/*============================================================================
+  # Title
+==============================================================================*/
+.title-color {
+  background-size: 200%;
+  background-image: none;
+  background-image: linear-gradient(45deg, #1a1427 0%, #1a1427 35%, #1f6a6d 66%, #00c9d3 100%);
+  -webkit-text-fill-color: transparent;
+  -webkit-background-clip: text;
+  -webkit-animation: glow 9s linear infinite;
+  animation: glow 9s linear infinite;
+  white-space: nowrap;
+}

@@ -1,0 +1,33 @@
+//============================================================================
+//  #Site Footer
+//==============================================================================
+.site-footer {
+  clear: both;
+  padding: $gutter 0;
+  position: fixed;
+  width: 100%;
+  z-index: 3;
+}
+
+.footer__credit {
+  @include opacity(.6);
+}
+
+.social-icons__link {
+  padding: 15px;
+
+  &:hover {
+    color: $colorSecondaryAccent;
+  }
+}
+
+.footer-logo {
+  filter: drop-shadow(10px -12px 0px $colorPrimary);
+  position: relative;
+  top: -48px;
+  width: 50px;
+}
+
+.page-background {
+  padding-bottom: 200px;
+}

@@ -1,4 +1,14 @@
 import React, { Component } from 'react';
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+
+import Portfolio from "./pages/Portfolio";
+import About from "./pages/About";
+import Contact from "./pages/Contact";
+import Work from "./pages/Work";
+import NoMatch from "./pages/NoMatch";
+import Footer from "./components/Footer";
+import Nav from "./components/Nav";
+
 import logo from './logo.svg';
 import './App.css';
 
@@ -34,23 +44,19 @@ class App extends Component {
 
   render() {
     return (
-      <div className="App">
-        <div className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h2>Welcome to React</h2>
+      <Router>
+        <div>
+          <Nav />
+          <Switch>
+            <Route exact path="/" component={ Portfolio } />
+            <Route exact path="/about" component={ About } />
+            <Route exact path="/contact" component={ Contact } />
+            <Route exact path="/work" component={ Work } />
+            <Route component={ NoMatch } />
+          </Switch>
+          <Footer />
         </div>
-        <p className="App-intro">
-          {'This is '}
-          <a href="https://github.com/mars/heroku-cra-node">
-            {'create-react-app with a custom Node/Express server'}
-          </a><br/>
-        </p>
-        <p className="App-intro">
-          {this.state.fetching
-            ? 'Fetching message from API'
-            : this.state.message}
-        </p>
-      </div>
+      </Router>
     );
   }
 }

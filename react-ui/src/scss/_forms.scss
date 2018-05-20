@@ -1,0 +1,300 @@
+/*============================================================================
+  #Forms
+==============================================================================*/
+form {
+  margin-bottom: 0;
+  z-index: 5;
+}
+
+.form-vertical {
+  margin-bottom: $gutter / 2;
+}
+
+/*================ Prevent zoom on touch devices in active inputs ================*/
+@include at-query($max, $medium) {
+  input,
+  textarea {
+    font-size: 16px;
+  }
+}
+
+input,
+textarea,
+button,
+select {
+  @include user-select(text);
+}
+
+button {
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+button,
+input,
+textarea {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+}
+
+button {
+  background: none;
+  border: none;
+  display: inline-block;
+  cursor: pointer;
+}
+
+input[type="image"] {
+  padding-left: 0;
+  padding-right: 0;
+}
+
+fieldset {
+  border: 1px solid $colorBorder;
+  padding: $gutter / 2;
+}
+
+legend {
+  border: 0;
+  padding: 0;
+}
+
+button,
+input[type="submit"] {
+  cursor: pointer;
+}
+
+input,
+textarea,
+select {
+  background-color: transparent;
+  max-width: 100%;
+  padding: 8px 0;
+  border: 0;
+  border-radius: 0;
+
+  &:focus {
+    outline: 0;
+  }
+
+  &[disabled],
+  &.disabled {
+    cursor: default;
+    background-color: $disabledGrey;
+    border-color: $disabledBorder;
+  }
+
+  &.input-full {
+    width: 100%;
+  }
+}
+
+textarea {
+  min-height: 100px;
+}
+
+/*================ Input element overrides ================*/
+input[type="checkbox"],
+input[type="radio"] {
+  display: inline;
+  margin: 0 8px 0 0;
+  padding: 0;
+  width: auto;
+}
+
+input[type="checkbox"] {
+  -webkit-appearance: checkbox;
+  -moz-appearance: checkbox;
+}
+
+input[type="radio"] {
+  -webkit-appearance: radio;
+  -moz-appearance: radio;
+}
+
+input[type="image"] {
+  padding-left: 0;
+  padding-right: 0;
+}
+
+select {
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  padding-right: 28px;
+  text-indent: 0.01px;
+  text-overflow: '';
+  cursor: pointer;
+  border-bottom: 2px solid $colorPrimary;
+  background-position: right center;
+  background: {
+    image: url('{{ "ico-chevron.svg" | asset_url }}');
+    repeat: no-repeat;
+    position: right -1px center;
+    color: transparent;
+  }
+  background-size: 24px 24px;
+
+  /*================ Hide the svg arrow in IE9 and below ================*/
+  .ie9 &,
+  .lt-ie9 & {
+    padding-right: 10px;
+    background-image: none;
+  }
+}
+
+optgroup {
+  font-weight: bold;
+}
+
+// Force option color (affects IE only)
+option {
+  color: #000;
+  background-color: #fff;
+}
+
+select::-ms-expand {
+  display: none;
+}
+
+/*================ Form labels ================*/
+.hidden-label {
+  text-align: left;
+  font-weight: 400;
+  @include opacity(0);
+}
+
+.hidden-label--active {
+  @include opacity(1);
+}
+
+.hidden-label--fade {
+  @include opacity(0.3);
+}
+
+label[for] {
+  cursor: pointer;
+}
+
+/*================ Horizontal Form ================*/
+.form-vertical {
+  input,
+  select,
+  textarea {
+    display: block;
+    margin-bottom: 10px;
+  }
+
+  input[type="radio"],
+  input[type="checkbox"] {
+    display: inline-block;
+  }
+}
+
+/*================ Error styles ================*/
+input,
+select,
+textarea {
+  &.error {
+    border-color: $errorRed;
+    background-color: $errorRedBg;
+    color: $errorRed;
+  }
+}
+
+label.error {
+  color: $errorRed;
+}
+
+
+/*================ Input Group ================*/
+.input-group {
+  position: relative;
+  display: block;
+
+  @include at-query($min, $large) {
+    display: table;
+    border-collapse: separate;
+  }
+
+  input {
+    // Nasty Firefox hack for inputs http://davidwalsh.name/firefox-buttons
+    &::-moz-focus-inner {
+      border: 0;
+      padding: 0;
+      margin-top: -1px;
+      margin-bottom: -1px;
+    }
+  }
+}
+
+.input-group-field,
+.input-group-btn {
+  display: table-cell;
+  vertical-align: middle;
+  margin: 0;
+}
+
+.input-group .btn,
+.input-group .input-group-field {
+  height: 37px;
+}
+
+.input-group .input-group-field {
+  width: 100%;
+}
+
+.input-group-btn {
+  position: relative;
+  white-space: nowrap;
+  width: 1%;
+  padding-left: 16px;
+}
+
+/*================ Input Underline ================*/
+
+.input-underline {
+  border: 0;
+  border-bottom-style: solid;
+  border-width: 2px;
+  margin-bottom: $gutter;
+  font-family: $mainFontStack;
+  font-weight: 400;
+  @include at-query($min, $large) {
+    margin-bottom: 0;
+  }
+}
+
+.input-underline--primary {
+  border-color: $colorPrimary;
+  color: $colorPrimary;
+}
+
+.input-underline--primary::-webkit-input-placeholder {
+  color: $colorPrimary;
+}
+
+.input-underline--secondary-overlay {
+  border-color: $colorSecondaryAccentOverlay;
+}
+
+.input-underline--secondary-overlay::-webkit-input-placeholder {
+  color: $colorSecondaryAccentOverlay;
+}
+
+
+.input-underline--textarea {
+  padding: $gutter/2;
+  border: 2px solid;
+}
+
+.input-underline--primary:focus::-webkit-input-placeholder { color:transparent; }
+.input-underline--primary:focus:-moz-placeholder { color:transparent; } /* FF 4-18 */
+.input-underline--primary:focus::-moz-placeholder { color:transparent; } /* FF 19+ */
+.input-underline--primary:focus:-ms-input-placeholder { color:transparent; } /* IE 10+ */
+
+.input-underline--secondary-overlay:focus::-webkit-input-placeholder { color:$secondaryOverlayFaded; }
+.input-underline--secondary-overlay:focus:-moz-placeholder { color:$secondaryOverlayFaded; } /* FF 4-18 */
+.input-underline--secondary-overlay:focus::-moz-placeholder { color:$secondaryOverlayFaded; } /* FF 19+ */
+.input-underline--secondary-overlay:focus:-ms-input-placeholder { color:$secondaryOverlayFaded; } /* IE 10+ */
