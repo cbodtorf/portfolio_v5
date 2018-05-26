@@ -5101,6 +5101,25 @@ label.error {
 .mobile-nav__toggle--secondary button {
   padding: 8px 16px; }
 
+@media only screen and (max-width: 768px) {
+  .nav-work {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    text-align: left; }
+  .nav-contact {
+    position: absolute;
+    top: 10px;
+    left: 50%;
+    transform: translateX(-50%); }
+  .nav-about {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    text-align: right; }
+  .site-header__main {
+    padding: 12px 0 0; } }
+
 .mobile-nav--footer {
   max-width: 80%;
   margin-top: 32px; }
@@ -5400,6 +5419,10 @@ label.error {
   writing-mode: tb-rl;
   writing-mode: vertical-rl;
   z-index: 3; }
+
+@media only screen and (max-width: 768px) {
+  .vericaltext {
+    top: 55px; } }
 
 .work-item {
   border-top: 2px solid;

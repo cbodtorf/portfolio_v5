@@ -10,6 +10,12 @@
   z-index: 3;
 }
 
+@media only screen and (max-width: 768px) {
+  .vericaltext {
+    top: 55px;
+  }
+}
+
 .work-item {
   border-top: 2px solid;
   padding-right: 35px;
