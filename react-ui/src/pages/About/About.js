@@ -18,7 +18,7 @@ class About extends Component {
                         <p>I enjoy pineapple on my pizza...</p>
                         <br/>
                         <p>Also, I am an Agency based full-stack developer with a focus on Ecommerce and Design.</p>
-                        <p>Check out my <Link to="/projects">projects</Link> page to see the websites/apps that I have created. Please do not hesitate to reach out
+                        <p>Check out my <Link to="/work">projects</Link> page to see the websites/apps that I have created. Please do not hesitate to reach out
                           via the <Link to="/contact">contact form.</Link>
                         </p>
 
